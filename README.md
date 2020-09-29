@@ -1,6 +1,6 @@
+[![Sample from random exploration with Go-Explore](https://img.youtube.com/vi/u_E8dyRb5YE/hqdefault.jpg)](https://www.youtube.com/watch?v=u_E8dyRb5YE&feature=youtu.be)
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
-[![Sample from random exploration with Go-Explore](https://img.youtube.com/vi/u_E8dyRb5YE/hqdefault.jpg)](https://www.youtube.com/watch?v=u_E8dyRb5YE&feature=youtu.be)
 
 # Some Inconsistencies
 Be aware of the following regarding my implementation:
