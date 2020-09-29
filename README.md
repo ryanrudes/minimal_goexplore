@@ -1,6 +1,7 @@
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
 
+# Some Inconsistencies
 Be aware of the following regarding my implementation:
 - The Go-Explore algorithm has many specifics in terms of hyperparameters and tiny, yet important details, and it's likely I messed up at least one of them.
 - My implementation is limitted to Atari with no domain-knowledge. I also included a piece of code slightly adapted to run with the `retro` module, which enables use of any ROM game file, but removes the ability to explore from multiple cells at once.
@@ -8,9 +9,11 @@ Be aware of the following regarding my implementation:
 - My implementation of OrderedDict is ridiculous; I only used it because I realized a big issue with the structure of my prior `dict` object towards the end of the process the would require quite a few fine edits throughout my code. I simply wanted to see whether it worked sooner. I'm not focusing on this repo in the future, but unless you are using parts of my code in your own implementation, this should not be a problem.
 - For the above 2 reasons, my implementation could surely be more efficient.
 
+# Some Comments
 I'm highly uncertain my implementation would acheive the same as the results presented in the paper due to the high probability of errors in my code. If you find anything you'd like to point out, just raise an issue. I'll update the code if so, but I want be updating this repo otherwise.
 However, I tested my Atari implementation on Montezuma's Revenge and Pitfall. I terminated my test on Pitfall because it would take too long to determine if it actually worked (the reward is so sparse). However, with Montezuma's Revenge (with also very sparse reward, but more manageable in terms of time-to-explore before finding reward), it is continuously discovering new cells, rooms, and reward. I tested it for 30 minutes and from the few seconds I watched it render the game, it appeared to have reached a score of 2600, discovered a little over 200 cells, and 5 or 6 rooms. I'm sure it would continue to improve if I ran it for longer (I didnt'y really run it for very long), but as I mentioned, not confident that it would compare to the official Go-Explore implementation.
 
+# Some Benefits
 The only reasons I'd think an individual would prefer this over the official implementation is:
 - It's far less code
 - It renders throughout (at a low frame rate, to not further increase the time it takes to explore by too much)
