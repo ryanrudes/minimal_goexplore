@@ -1,3 +1,5 @@
+[](https://github.com/Ryan-Rudes/minimal_goexplore/blob/master/go-explore%20image.png)
+
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
 
