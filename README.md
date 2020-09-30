@@ -1,4 +1,4 @@
-[image](https://imgur.com/a/hLpTNFS)
+<a href="https://ibb.co/61TCgtH"><img src="https://i.ibb.co/SdMCRmt/rooms.png" alt="rooms" border="0"></a>
 
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
