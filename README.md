@@ -1,7 +1,12 @@
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
 
-<a href="https://ibb.co/61TCgtH"><figure><img src="https://i.ibb.co/SdMCRmt/rooms.png" alt="rooms" border="0"><figcaption>8 of the first 10 rooms discovered by this code.</figcaption></figure></a>
+<a href="https://ibb.co/61TCgtH">
+  <figure>
+  <img src="https://i.ibb.co/SdMCRmt/rooms.png" alt="rooms" border="0">
+  <figcaption>8 of the first 10 rooms discovered by this code.</figcaption>
+  </figure>
+</a>
 
 # Some Inconsistencies
 Be aware of the following regarding my implementation:
