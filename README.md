@@ -30,4 +30,5 @@ The setup for `retro` gym is more lengthy than the standard `gym`. `gym` comes p
 
 # Demonstration
 [![Sample from random exploration with Go-Explore](https://img.youtube.com/vi/u_E8dyRb5YE/hqdefault.jpg)](https://www.youtube.com/watch?v=u_E8dyRb5YE&feature=youtu.be)
+
 Click the image above to redirect to a 2-minute YouTube video. It shows a rendering of three environments with a random agent exploring, then returning to previously-discovered states according to the procedure of Go-Explore. These are obviously **not** samples of a trained agent, rather merely the random exploration agent after a bit of exploration.
