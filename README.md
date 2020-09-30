@@ -3,6 +3,12 @@ A Python implementation of the Go-Explore exploration algorithm without domain k
 
 <a href="https://ibb.co/RH7NtFC"><img src="https://i.ibb.co/0JQK17f/rooms.png" alt="rooms" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
+A Go-Explore agent discovers many rooms in Montezuma's Revenge even when trained for just an hour on a single home CPU.
+
+![Alt Text](https://media.giphy.com/media/vVGCKu6SX9Y7T11RCj/giphy.gif)
+
+Two agents exploring via Go-Explore, returning according to a different metric.
+
 # Some Inconsistencies
 Be aware of the following regarding my implementation:
 - The Go-Explore algorithm has many specifics in terms of hyperparameters and tiny, yet important details, and it's likely I messed up at least one of them.
