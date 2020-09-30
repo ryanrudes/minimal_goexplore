@@ -1,7 +1,7 @@
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
 
-<a href="https://ibb.co/RH7NtFC"><img src="https://i.ibb.co/0JQK17f/rooms.png" alt="rooms" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>image uploading</a><br />
+<a href="https://ibb.co/RH7NtFC"><img src="https://i.ibb.co/0JQK17f/rooms.png" alt="rooms" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
 # Some Inconsistencies
 Be aware of the following regarding my implementation:
