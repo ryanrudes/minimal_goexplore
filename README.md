@@ -1,4 +1,3 @@
-[![Sample from random exploration with Go-Explore](https://img.youtube.com/vi/u_E8dyRb5YE/hqdefault.jpg)](https://www.youtube.com/watch?v=u_E8dyRb5YE&feature=youtu.be)
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
 
@@ -28,3 +27,7 @@ The only reasons I'd think an individual would prefer this over the official imp
 The setup for `retro` gym is more lengthy than the standard `gym`. `gym` comes preinstalled with many Atari environments, but `retro` allows you to import any ROM file you'd like. Follow the installation and usage procedures according to these links:
 - [`Retro` Main Page (via OpenAI Website)](https://openai.com/blog/gym-retro/) [`Retro` Documentation](https://retro.readthedocs.io/en/latest/getting_started.html)
 - [`Gym` Main Page (via OpenAI Website)](https://gym.openai.com/) [`Gym` Documentation](https://gym.openai.com/docs/)
+
+# Demonstration
+[![Sample from random exploration with Go-Explore](https://img.youtube.com/vi/u_E8dyRb5YE/hqdefault.jpg)](https://www.youtube.com/watch?v=u_E8dyRb5YE&feature=youtu.be)
+Click the image above to redirect to a 2-minute YouTube video. It shows a rendering of three environments with a random agent exploring, then returning to previously-discovered states according to the procedure of Go-Explore. These are obviously **not** samples of a trained agent, rather merely the random exploration agent after a bit of exploration.
