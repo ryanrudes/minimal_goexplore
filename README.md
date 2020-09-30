@@ -27,4 +27,4 @@ The only reasons I'd think an individual would prefer this over the official imp
 # Installation
 The setup for `retro` gym is more lengthy than the standard `gym`. `gym` comes preinstalled with many Atari environments, but `retro` allows you to import any ROM file you'd like. Follow the installation and usage procedures according to these links:
 - [`Retro` Main Page (via OpenAI Website)](https://openai.com/blog/gym-retro/) [`Retro` Documentation](https://retro.readthedocs.io/en/latest/getting_started.html)
-- [`Gym` Main Page (via OpenAI Website)](https://gym.openai.com/) [`Retro` Documentation](https://gym.openai.com/docs/)
+- [`Gym` Main Page (via OpenAI Website)](https://gym.openai.com/) [`Gym` Documentation](https://gym.openai.com/docs/)
