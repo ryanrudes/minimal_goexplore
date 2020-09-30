@@ -1,4 +1,4 @@
-![image](https://imgur.com/a/JF2keDA)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/JF2keDA" data-context="false" ><a href="//imgur.com/a/JF2keDA"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
