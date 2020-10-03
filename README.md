@@ -9,6 +9,10 @@ A Go-Explore agent discovers many rooms in Montezuma's Revenge even when run for
 
 Two agents exploring via Go-Explore, returning according to a different metric.
 
+<a href="https://ibb.co/Q6HKckk"><img src="https://i.ibb.co/VvCqNxx/all-shots.jpg" alt="all-shots" border="0"></a>
+
+The many different cells found in various `gym` environments.
+
 # Some Inconsistencies
 Be aware of the following regarding my implementation:
 - The Go-Explore algorithm has many specifics in terms of hyperparameters and tiny, yet important details, and it's likely I messed up at least one of them.
