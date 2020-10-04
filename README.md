@@ -1,5 +1,3 @@
-<a href="https://ibb.co/MVRxDwV"><img src="https://i.ibb.co/hWKJRQW/ims.png" alt="ims" border="0"></a>
-
 # Minimal Go-Explore
 A Python implementation of the Go-Explore exploration algorithm without domain knowledge.
 
@@ -47,3 +45,5 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 - I was able to discover 30 rooms in Montezuma's Revenge.
 - I maxed out the Q\*bert scoreboard... twice.
 - I maxed out the scoreboard of Pinball in approx. 2 minutes on my CPU.
+
+<a href="https://ibb.co/MVRxDwV"><img src="https://i.ibb.co/hWKJRQW/ims.png" alt="ims" border="0"></a>
