@@ -42,8 +42,7 @@ The setup for `retro` gym is more lengthy than the standard `gym`. `gym` comes p
 Click the image above to redirect to a 2-minute YouTube video. It shows a rendering of three environments with a random agent exploring, then returning to previously-discovered states according to the procedure of Go-Explore. These are obviously **not** samples of a trained agent, rather merely the random exploration agent after a bit of exploration.
 
 # Results
-- I was able to discover 30 rooms in Montezuma's Revenge.
+- I was able to discover 30 unique rooms in Montezuma's Revenge, and 35 different rooms (some repeat in the game).
+<a href="https://ibb.co/MVRxDwV"><img src="https://i.ibb.co/hWKJRQW/ims.png" alt="ims" border="0"></a>
 - I maxed out the Q\*bert scoreboard... twice (this would continue as it ran more).
 - I maxed out the scoreboard of Pinball in approx. 2 minutes on my CPU.
-
-<a href="https://ibb.co/MVRxDwV"><img src="https://i.ibb.co/hWKJRQW/ims.png" alt="ims" border="0"></a>
