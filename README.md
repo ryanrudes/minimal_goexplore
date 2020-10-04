@@ -48,7 +48,12 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 
 - I maxed out the Q\*bert scoreboard... twice (this would continue as it ran more).
 
+<a href="https://ibb.co/w0cWBkt"><img src="https://i.ibb.co/r7d6Fj9/qbert-ims.png" alt="qbert-ims" border="0"></a>
 
 - I maxed out the scoreboard of Pinball in approx. 2 minutes on my CPU.
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/ZgSFx2P/Screen-Shot-2020-10-02-at-2-58-33-PM.png" alt="Screen-Shot-2020-10-02-at-2-58-33-PM" border="0"></a>
+
+- I beat the first three levels of Breakout in about the same amount of time
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/jkL2v07/Screen-Shot-2020-10-02-at-5-20-18-PM.png" alt="Screen-Shot-2020-10-02-at-5-20-18-PM" border="0"></a>
