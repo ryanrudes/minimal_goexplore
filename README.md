@@ -47,4 +47,8 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 <a href="https://ibb.co/MVRxDwV"><img src="https://i.ibb.co/hWKJRQW/ims.png" alt="ims" border="0"></a>
 
 - I maxed out the Q\*bert scoreboard... twice (this would continue as it ran more).
+
+
 - I maxed out the scoreboard of Pinball in approx. 2 minutes on my CPU.
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/ZgSFx2P/Screen-Shot-2020-10-02-at-2-58-33-PM.png" alt="Screen-Shot-2020-10-02-at-2-58-33-PM" border="0"></a>
