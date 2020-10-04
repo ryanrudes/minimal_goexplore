@@ -58,3 +58,7 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 - I beat the first three levels of Breakout in about the same amount of time
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/jkL2v07/Screen-Shot-2020-10-02-at-5-20-18-PM.png" alt="Screen-Shot-2020-10-02-at-5-20-18-PM" border="0"></a>
+
+- It can theoretically beat PacMan indefinetely, so I'll just show up to about the fifth or sixth level:
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/HCwgxnZ/Screen-Shot-2020-10-02-at-5-20-20-PM.png" alt="Screen-Shot-2020-10-02-at-5-20-20-PM" border="0"></a>
