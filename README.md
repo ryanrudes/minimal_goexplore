@@ -43,7 +43,7 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 
 # Results
 - I was able to discover 30 rooms in Montezuma's Revenge.
-- I maxed out the Q\*bert scoreboard... twice.
+- I maxed out the Q\*bert scoreboard... twice (this would continue as it ran more).
 - I maxed out the scoreboard of Pinball in approx. 2 minutes on my CPU.
 
 <a href="https://ibb.co/MVRxDwV"><img src="https://i.ibb.co/hWKJRQW/ims.png" alt="ims" border="0"></a>
