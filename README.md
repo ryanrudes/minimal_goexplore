@@ -36,6 +36,8 @@ The setup for `retro` gym is more lengthy than the standard `gym`. `gym` comes p
 - [`Retro` Main Page (via OpenAI Website)](https://openai.com/blog/gym-retro/) [`Retro` Documentation](https://retro.readthedocs.io/en/latest/getting_started.html)
 - [`Gym` Main Page (via OpenAI Website)](https://gym.openai.com/) [`Gym` Documentation](https://gym.openai.com/docs/)
 
+* Try `threaded-atari.py` instead of `atari.py`, it's far faster when using multithreading
+
 # Demonstration
 [![Sample from random exploration with Go-Explore](https://img.youtube.com/vi/u_E8dyRb5YE/hqdefault.jpg)](https://www.youtube.com/watch?v=u_E8dyRb5YE&feature=youtu.be)
 
