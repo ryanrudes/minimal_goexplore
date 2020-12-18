@@ -85,7 +85,7 @@ max_episode_reward = 0
 def worker():
     global cells, n, episodes, frames, max_episode_reward
 
-    env = gym.make("MontezumaRevenge-v0")
+    env = gym.make(args.id)
     env.reset()
     terminal = False
 
@@ -112,21 +112,19 @@ def worker():
                 for i in visits:
                     cells[i].times_chosen_since_new = 0
 
-                n += 1
-
             frames += 1
 
         max_episode_reward = max(max_episode_reward, episode_reward)
         scores = np.array([cell.score() for cell in cells])
         probs = scores / scores.sum()
-        idx = np.random.choice(n, p = probs)
+        idx = np.random.choice(len(cells), p = probs)
         env.reset()
         env.env.restore_full_state(cells[idx].restore)
         cells[idx].times_chosen += 1
         cells[idx].times_chosen_since_new += 1
         terminal = False
         episodes += 1
-        logging.info("Episode: %s, Frame: %s, Cells discovered: %s, Maximum reward: %s" % (episodes, frames, n, max_episode_reward))
+        logging.info("Episode: %s, Frame: %s, Cells discovered: %s, Maximum reward: %s" % (episodes, frames, len(cells), max_episode_reward))
 
 threads = [threading.Thread(target = worker) for i in range(args.threads)]
 
