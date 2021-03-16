@@ -64,3 +64,65 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 - It can theoretically beat PacMan indefinetely, so I'll just show up to about the fifth or sixth level:
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/HCwgxnZ/Screen-Shot-2020-10-02-at-5-20-20-PM.png" alt="Screen-Shot-2020-10-02-at-5-20-20-PM" border="0"></a>
+
+**EDIT (March 16, 2021)**
+Looking back, there were far more efficient ways to accomplish this. Here are some ways in that I would write it differently in hindsight:
+* For one, Python's built-in hash is far better for this purpose than anything from `hashlib`. This is because Python's `hash()` function is fast and can hash the bytes of a numpy array using `hash(ndarray.tobytes())`
+* Some code refactoring made it much easier to read
+* I realized that I partially messed up the cell function (it's supposed to be reduced to 8 possible values, I accidentally made it 32)
+* I found that there is a very little difference between using Go Explore's special return heuristic versus merely returning to previously experienced cells at random. This makes for an easier code sample by far which produces similar results (although this claim might not hold for later stages, where the special heuristic might enable the algorithm to be far superior to a random return policy, which might get stuck exploring a large number of mostly irrelevant cells).
+
+Taking these points into account, here's a very simple and far shorter (50 lines) code sample that performs similarly to the one provided in the repo earlier:
+
+```python
+from random import choice
+import numpy as np
+import cv2
+import gym
+
+def cellfn(observation):
+    cell = cv2.cvtColor(observation, cv2.COLOR_RGB2GRAY)
+    cell = cv2.resize(cell, (11, 8), interpolation = cv2.INTER_AREA)
+    cell = cell // 32
+    return cell
+
+def hashfn(observation):
+    return hash(observation.tobytes())
+
+def add(observation):
+    global archive
+    cell = cellfn(observation)
+    hashed = hashfn(cell)
+    restore = env.env.clone_full_state()
+    if not hashed in archive:
+        hashes.append(hashed)
+        archive[hashed] = restore
+
+hashes = []
+archive = dict()
+
+env = gym.make("MontezumaRevenge-v0")
+episodes = 0
+
+observation = env.reset()
+add(observation)
+
+while True:
+    terminal = False
+
+    while not terminal:
+        action = env.action_space.sample()
+        observation, reward, terminal, info = env.step(action)
+        terminal |= info['ale.lives'] < 6
+        if episodes % 100 == 0:
+            env.render()
+        if not terminal:
+            add(observation)
+
+    hashed = choice(hashes)
+    restore = archive[hashed]
+
+    env.reset()
+    env.env.restore_full_state(restore)
+    episodes += 1
+```
