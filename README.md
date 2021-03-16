@@ -93,10 +93,10 @@ def add(observation):
     global archive
     cell = cellfn(observation)
     hashed = hashfn(cell)
-    restore = env.env.clone_full_state()
     if not hashed in archive:
+        ram = env.env.clone_full_state()
         hashes.append(hashed)
-        archive[hashed] = restore
+        archive[hashed] = ram
 
 hashes = []
 archive = dict()
@@ -114,15 +114,18 @@ while True:
         action = env.action_space.sample()
         observation, reward, terminal, info = env.step(action)
         terminal |= info['ale.lives'] < 6
-        if episodes % 100 == 0:
+        if episodes % 10 == 0:
             env.render()
         if not terminal:
             add(observation)
 
     hashed = choice(hashes)
-    restore = archive[hashed]
+    ram = archive[hashed]
 
     env.reset()
-    env.env.restore_full_state(restore)
+    env.env.restore_full_state(ram)
     episodes += 1
+
+    print ("Episode: %d, Cells discovered: %d" % (episodes, len(hashes)))
+
 ```
