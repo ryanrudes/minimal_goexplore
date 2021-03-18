@@ -86,11 +86,11 @@ def explore():
                 action = env.action_space.sample()
 
             for i in range(4):
-              frame, reward, terminal, info = env.step(action)
-              score += reward
-              terminal |= info['ale.lives'] < 6
-              if terminal:
-                break
+                frame, reward, terminal, info = env.step(action)
+                score += reward
+                terminal |= info['ale.lives'] < 6
+                if terminal:
+                    break
 
             trajectory.append(action)
             episode_length += 4
