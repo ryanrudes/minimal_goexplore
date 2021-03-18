@@ -69,11 +69,12 @@ e2 = 0.00001
 def explore():
     global highscore, frames, best_cell, new_cell, archive
 
-env = retro.make("SuperMarioBros-Nes")
+env = retro.make("SuperMarioWorld2-Snes")
 frame = env.reset()
 score = 0
 action = np.zeros(env.action_space.shape)
 trajectory = []
+iterations = 0
 
 while True:
     for i in range(100):
@@ -81,11 +82,12 @@ while True:
             action = env.action_space.sample()
 
         for i in range(4):
-              frame, reward, terminal, info = env.step(action)
-              env.render()
-              score += reward
-              terminal |= info['lives'] < 2
-              if terminal:
+            frame, reward, terminal, info = env.step(action)
+            if iterations % 10 == 0:
+                env.render()
+            score += reward
+            terminal |= info['lives'] < 3 or info['health'] < 109
+            if terminal:
                 break
 
         trajectory.append(action)
@@ -93,6 +95,8 @@ while True:
 
         if score > highscore:
             highscore = score
+            cv2.imshow("Best Cell", cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB))
+            cv2.waitKey(1)
 
         if terminal:
             break
@@ -109,6 +113,10 @@ while True:
                 cell.times_chosen_since_new = 0
                 cell.score = cell.cellscore()
 
+                cv2.imshow("Newest Cell", cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB))
+                cv2.waitKey(1)
+
+    iterations += 1
     scores = np.array([cell.score for cell in archive.values()])
     hashes = [cellhash for cellhash in archive.keys()]
     probs = scores / scores.sum()
@@ -117,4 +125,4 @@ while True:
     ram, score, trajectory = cell.choose()
     env.em.set_state(ram)
 
-    print ("Cells: %d, Frames: %d, Max Reward: %d" % (len(archive), frames, highscore))
+    print ("Iterations: %d, Cells: %d, Frames: %d, Max Reward: %d" % (iterations, len(archive), frames, highscore))
