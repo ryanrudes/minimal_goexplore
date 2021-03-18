@@ -57,11 +57,11 @@ class Cell(object):
     def choose(self):
         self.times_chosen += 1
         self.times_chosen_since_new += 1
-        return self.ram, self.reward
+        return self.ram, self.reward, self.trajectory
 
 archive = defaultdict(lambda: Cell())
 highscore = 0
-done = False
+frames = 0
 
 best_cell = np.zeros((1, 1, 3))
 new_cell = np.zeros((1, 1, 3))
@@ -70,51 +70,58 @@ e1 = 0.001
 e2 = 0.00001
 
 def explore():
-    global highscore, best_cell, new_cell
+    global highscore, frames, best_cell, new_cell, archive
 
-    env = gym.make("MontezumaRevenge-v0")
+    env = gym.make("MontezumaRevengeNoFrameskip-v0")
     frame = env.reset()
     score = 0
+    action = 0
+    trajectory = []
 
     while True:
-        while True:
-            try:
+        episode_length = 0
+
+        for i in range(100):
+            if np.random.random() > 0.95:
                 action = env.action_space.sample()
-                frame, reward, terminal, info = env.step(action)
-                score += reward
-                terminal |= info['ale.lives'] < 6
 
-                if score > highscore:
-                    highscore = score
-                    best_cell = np.copy(frame)
+            for i in range(4):
+              frame, reward, terminal, info = env.step(action)
+              score += reward
+              terminal |= info['ale.lives'] < 6
+              if terminal:
+                break
 
-                if terminal:
-                    break
-                else:
-                    cell = cellfn(frame)
-                    cellhash = hashfn(cell)
-                    cell = archive[cellhash]
-                    first_visit = cell.visit()
-                    if first_visit:
-                        cell.ram = env.env.clone_full_state()
-                        cell.reward = score
-                        new_cell = np.copy(frame)
-            except KeyboardInterrupt:
-                while True:
-                    try:
-                        print ("SHUTTING DOWN")
-                        env.close()
-                        return
-                    except:
-                        pass
+            trajectory.append(action)
+            episode_length += 4
+
+            if score > highscore:
+                highscore = score
+                best_cell = cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB)
+
+            if terminal:
+                frames += episode_length
+                break
+            else:
+                cell = cellfn(frame)
+                cellhash = hashfn(cell)
+                cell = archive[cellhash]
+                first_visit = cell.visit()
+                if first_visit or score > cell.reward or score == cell.reward and len(trajectory) < len(cell.trajectory):
+                    cell.ram = env.env.clone_full_state()
+                    cell.reward = score
+                    cell.trajectory = trajectory.copy()
+                    cell.times_chosen = 0
+                    cell.times_chosen_since_new = 0
+                    cell.score = cell.cellscore()
+                    new_cell = cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB)
 
         scores = np.array([cell.score for cell in archive.values()])
         hashes = [cellhash for cellhash in archive.keys()]
         probs = scores / scores.sum()
         restore = np.random.choice(hashes, p = probs)
         cell = archive[restore]
-        ram, score = cell.choose()
-        env.reset()
+        ram, score, trajectory = cell.choose()
         env.env.restore_full_state(ram)
 
 threads = [Thread(target = explore) for id in range(8)]
@@ -123,12 +130,8 @@ for thread in threads:
     thread.start()
 
 while True:
-    try:
-        print ("Cells: %d, Max Reward: %d" % (len(archive), highscore))
-        cv2.imshow("Best Cell", best_cell)
-        cv2.imshow("Newest Cell", new_cell)
-        cv2.waitKey(1)
-        sleep(1)
-    except KeyboardInterrupt:
-        sleep(3)
-        exit()
+    print ("Cells: %d, Frames: %d, Max Reward: %d" % (len(archive), frames, highscore))
+    cv2.imshow("Best Cell", best_cell)
+    cv2.imshow("Newest Cell", new_cell)
+    cv2.waitKey(1)
+    sleep(1)
