@@ -77,13 +77,15 @@ trajectory = []
 iterations = 0
 
 while True:
+    found_new_cell = False
+
     for i in range(100):
         if np.random.random() > 0.95:
             action = env.action_space.sample()
 
         for i in range(4):
             frame, reward, terminal, info = env.step(action)
-            if iterations % 10 == 0:
+            if iterations % 100 == 0:
                 env.render()
             score += reward
             terminal |= info['lives'] < 3 or info['health'] < 109
@@ -102,6 +104,7 @@ while True:
             break
         else:
             cell = cellfn(frame)
+            cv2.imshow("Cell", cv2.resize(cell * 32, (220, 160), interpolation = cv2.INTER_AREA))
             cellhash = hashfn(cell)
             cell = archive[cellhash]
             first_visit = cell.visit()
@@ -112,17 +115,22 @@ while True:
                 cell.times_chosen = 0
                 cell.times_chosen_since_new = 0
                 cell.score = cell.cellscore()
+                found_new_cell = True
 
                 cv2.imshow("Newest Cell", cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB))
                 cv2.waitKey(1)
+
+    if found_new_cell and iterations > 0:
+        restore_cell.times_chosen_since_new = 0
+        restore_cell.score = restore_cell.cellscore()
 
     iterations += 1
     scores = np.array([cell.score for cell in archive.values()])
     hashes = [cellhash for cellhash in archive.keys()]
     probs = scores / scores.sum()
     restore = np.random.choice(hashes, p = probs)
-    cell = archive[restore]
-    ram, score, trajectory = cell.choose()
+    restore_cell = archive[restore]
+    ram, score, trajectory = restore_cell.choose()
     env.em.set_state(ram)
 
     print ("Iterations: %d, Cells: %d, Frames: %d, Max Reward: %d" % (iterations, len(archive), frames, highscore))
