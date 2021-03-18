@@ -1,4 +1,4 @@
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 from threading import Thread
 from time import sleep
 import numpy as np
