@@ -30,6 +30,11 @@ class Cell(object):
         self.times_chosen_since_new = 0
         self.times_seen = 0
 
+    def __setattr__(self, key, value):
+        object.__setattr__(self, key, value)
+        if key != 'score' and hasattr(self, 'times_seen'):
+            self.score = self.cellscore()
+
     def cntscore(self, a):
         w = getattr(Weights, a)
         p = getattr(Powers, a)
@@ -44,7 +49,6 @@ class Cell(object):
 
     def visit(self):
         self.times_seen += 1
-        self.score = self.cellscore()
         return self.times_seen == 1
 
     def choose(self):
@@ -104,13 +108,11 @@ while True:
                 cell.trajectory = trajectory.copy()
                 cell.times_chosen = 0
                 cell.times_chosen_since_new = 0
-                cell.score = cell.cellscore()
                 if first_visit:
                     found_new_cell = True
 
     if found_new_cell and iterations > 0:
         restore_cell.times_chosen_since_new = 0
-        restore_cell.score = restore_cell.cellscore()
 
     iterations += 1
     scores = np.array([cell.score for cell in archive.values()])
