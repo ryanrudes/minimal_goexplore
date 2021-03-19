@@ -43,16 +43,9 @@ class Cell(object):
                1
 
     def visit(self):
-        first_visit = False
-        if not self.times_seen:
-            first_visit = True
-            for cell in archive.values():
-                cell.times_chosen_since_new = 0
-                cell.score = cell.cellscore()
-
         self.times_seen += 1
         self.score = self.cellscore()
-        return first_visit
+        return self.times_seen == 1
 
     def choose(self):
         self.times_chosen += 1
