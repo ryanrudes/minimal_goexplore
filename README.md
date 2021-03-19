@@ -74,7 +74,7 @@ Looking back, there were far more efficient ways to accomplish this. Here are so
 
 Taking these points into account, I've added v2 implementations which produce better results, for they are a more complete algorithm of the algorithm.
 
-Here's a summary of the results observed in the first 2 minutes of one particular run of `threaded-atari-v2.py` (not cherry-picked):
+Here's a summary of the results observed in the first 2 minutes of one particular run of `threaded-atari-v2.py` on `MontezumaRevenge-v0` (not cherry-picked):
 ```
 Iterations: 0,     Cells: 0,    Frames: 0,      Max Reward: 0
 Iterations: 4861,  Cells: 269,  Frames: 338964, Max Reward: 100
