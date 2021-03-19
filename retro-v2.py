@@ -1,5 +1,4 @@
 from collections import defaultdict, namedtuple
-from threading import Thread
 from time import sleep
 import numpy as np
 import retro
