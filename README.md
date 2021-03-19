@@ -70,6 +70,6 @@ Looking back, there were far more efficient ways to accomplish this. Here are so
 * For one, Python's built-in hash is far better for this purpose than anything from `hashlib`. This is because Python's `hash()` function is fast and can hash the bytes of a numpy array using `hash(ndarray.tobytes())`
 * Some code refactoring made it much easier to read
 * I realized that I partially messed up the cell function (it's supposed to be reduced to 8 possible values, I accidentally made it 32)
-* Used a `defaultdict` object made it easier to automatically create a new cell if one is found, and attempted to be accessed before having been encountered in prior.
+* Using a `defaultdict` object made it easier to automatically create a new cell if one is found, and attempted to be accessed before having been encountered in prior.
 
 Taking these points into account, I've added v2 implementations which produce better results, for they are a more complete algorithm of the algorithm.
