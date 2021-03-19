@@ -30,6 +30,11 @@ class Cell(object):
         self.times_chosen_since_new = 0
         self.times_seen = 0
 
+    def __setattr__(self, key, value):
+        object.__setattr__(self, key, value)
+        if key != 'score' and hasattr(self, 'times_seen'):
+            self.score = self.cellscore()
+
     def cntscore(self, a):
         w = getattr(Weights, a)
         p = getattr(Powers, a)
@@ -44,7 +49,6 @@ class Cell(object):
 
     def visit(self):
         self.times_seen += 1
-        self.score = self.cellscore()
         return self.times_seen == 1
 
     def choose(self):
@@ -63,7 +67,7 @@ new_cell = np.zeros((1, 1, 3))
 e1 = 0.001
 e2 = 0.00001
 
-def explore():
+def explore(id):
     global highscore, frames, iterations, best_cell, new_cell, archive
 
     env = gym.make("MontezumaRevengeNoFrameskip-v0")
@@ -72,6 +76,8 @@ def explore():
     action = 0
     trajectory = []
     my_iterations = 0
+
+    sleep(id / 10)
 
     while True:
         found_new_cell = False
@@ -109,14 +115,12 @@ def explore():
                     cell.trajectory = trajectory.copy()
                     cell.times_chosen = 0
                     cell.times_chosen_since_new = 0
-                    cell.score = cell.cellscore()
                     new_cell = cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB)
                     if first_visit:
                         found_new_cell = True
 
         if found_new_cell and my_iterations > 0:
             restore_cell.times_chosen_since_new = 0
-            restore_cell.score = restore_cell.cellscore()
 
         scores = np.array([cell.score for cell in archive.values()])
         hashes = [cellhash for cellhash in archive.keys()]
@@ -128,7 +132,7 @@ def explore():
         my_iterations += 1
         iterations += 1
 
-threads = [Thread(target = explore) for id in range(8)]
+threads = [Thread(target = explore, args = (id,)) for id in range(8)]
 
 for thread in threads:
     thread.start()
