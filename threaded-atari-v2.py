@@ -128,6 +128,7 @@ def explore(id):
         restore = np.random.choice(hashes, p = probs)
         restore_cell = archive[restore]
         ram, score, trajectory = restore_cell.choose()
+        env.reset()
         env.env.restore_full_state(ram)
         my_iterations += 1
         iterations += 1
