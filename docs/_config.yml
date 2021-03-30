@@ -1,1 +1,4 @@
-theme: jekyll-theme-cayman
+title: Minimal Go Explore
+description: A minimal and efficient implementation of the Go Explore algorithm without domain knowledge
+color_scheme: light
+remote_theme: pmarsceill/just-the-docs
