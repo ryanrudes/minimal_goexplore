@@ -116,8 +116,7 @@ def explore(id):
                     cell.times_chosen = 0
                     cell.times_chosen_since_new = 0
                     new_cell = cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB)
-                    if first_visit:
-                        found_new_cell = True
+                    found_new_cell = True
 
         if found_new_cell and my_iterations > 0:
             restore_cell.times_chosen_since_new = 0
