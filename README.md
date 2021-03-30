@@ -74,7 +74,7 @@ Looking back, there were far more efficient ways to accomplish this. Here are so
 Taking these points into account, I've added v2 implementations which produce better results, for they are a more complete algorithm of the algorithm.
 
 #### **EDIT (March 30, 2021)**
-Here's a summary of the results observed in the first 2 minutes of one particular run of `threaded-atari-v2.py` on `MontezumaRevengeNoFrameskip-v0` (not cherry-picked):
+Here's a summary of the results observed in one particular run of `threaded-atari-v2.py` on `MontezumaRevengeNoFrameskip-v0` (not cherry-picked):
 ```
 Iterations: 0,       Cells: 0,    Frames: 0,         Max Reward: 0
 Iterations: 4381,    Cells: 235,  Frames: 308820,    Max Reward: 100
