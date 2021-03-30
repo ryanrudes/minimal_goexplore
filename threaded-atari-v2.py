@@ -70,7 +70,7 @@ e2 = 0.00001
 def explore(id):
     global highscore, frames, iterations, best_cell, new_cell, archive
 
-    env = gym.make("MontezumaRevengeNoFrameskip-v0")
+    env = gym.make("MontezumaRevengeDeterministic-v4")
     frame = env.reset()
     score = 0
     action = 0
