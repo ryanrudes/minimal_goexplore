@@ -69,6 +69,7 @@ Looking back, there were far more efficient ways to accomplish this. Here are so
 * Some code refactoring made it much easier to read
 * I realized that I partially messed up the cell function (it's supposed to be reduced to 8 possible values, I accidentally made it 32)
 * Using a `defaultdict` object made it easier to automatically create a new cell if one is found, and attempted to be accessed before having been encountered in prior.
+* There were a few other components of the algorithm's logic that I misinterpreted in the initial implementation, but resolved in the latest version.
 
 Taking these points into account, I've added v2 implementations which produce better results, for they are a more complete algorithm of the algorithm.
 
