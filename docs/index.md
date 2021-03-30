@@ -126,11 +126,11 @@ Iterations: 2613646, Cells: 9031, Frames: 237898588, Max Reward: 10200
 ```
 
 <div style="clear:both;display:table;">
-  <div style="float:left;width:33.33%;padding:5px;">
+  <div style="float:left;width:50%;padding:5px;">
     <img src="https://i.ibb.co/S7qB16d/mont-goexp-no-domain-new-cells-square-ticks-1.jpg" style="width:100%">
   </div>
   
-  <div style="float:left;width:33.33%;padding:5px;">
+  <div style="float:left;width:50%;padding:5px;">
     <img src="https://i.ibb.co/rksKS3r/mont-goexp-no-domain-new-score-square-ticks-1.jpg" alt="Forest" style="width:100%">
   </div>
 </div>
