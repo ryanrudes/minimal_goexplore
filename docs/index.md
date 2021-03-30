@@ -68,7 +68,7 @@ This is disadvantageous because many real-world tasks involve a great amount of 
 Go explore involves sampling random trajectories, recording visitted states, and then returning to a certain state based upon a special heuristic. Over time, the algorithm experiences a wide variety of states that encompass the entire environment. This provides for diverse exploration that is not conditioned upon any reward signal.
 
 There are an intractably large number of possible states, considering a *state* in this case is represented by some RGB pixel image. For this reason, the authors downscale frames into **cells**, and store these in an archive as new ones are found.
-<img src="https://i.ibb.co/dWnMyyr/downscale-vis-horiz.png" alt="downscale-vis-horiz" border="0">
+<img src="https://i.ibb.co/dWnMyyr/downscale-vis-horiz.png" alt="downscale-vis-horiz" border="0" style="display:block;margin-left:auto;margin-right:auto;">
 
 > One could, in theory, run Go-Explore directly in a high-dimensional state space (wherein each cell
 > contains exactly one state); however doing so would be intractable in practice. To be tractable in
@@ -86,7 +86,7 @@ There are an intractably large number of possible states, considering a *state* 
 
 After a cell is returned to, up to 100 random actions are taken. The iteration of exploration from that cell terminates after either 100 steps, or reaching a terminal state, whichever comes first. At each step, the algorithm repeats the previous action with 95% probability. Otherwise, it performs a new random action. This permits the agent to actually move, rather than remaining overall stationary while jittering back and forth due to the effects of sampling repeatedly from a uniform probability distribution across the action space.
 
-<img src="https://i.ibb.co/9hGb4Zt/high-level-overview-v2-1.jpg" alt="high-level-overview-v2-1" border="0">
+<img src="https://i.ibb.co/9hGb4Zt/high-level-overview-v2-1.jpg" alt="high-level-overview-v2-1" border="0" style="display:block;margin-left:auto;margin-right:auto;">
 
 The authors determine that a special return heuristic for selecting cells to explore from improves upon simply random selection. Their heuristic incorperates 3 factors that are weighted separately. The heuristic assigns a positive weight to each cell discovered thus far that is higher for cells that are deemed more promising. The attributes taken into account are as follows:
 
