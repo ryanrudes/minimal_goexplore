@@ -63,7 +63,7 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/HCwgxnZ/Screen-Shot-2020-10-02-at-5-20-20-PM.png" alt="Screen-Shot-2020-10-02-at-5-20-20-PM" border="0"></a>
 
-**EDIT (March 16, 2021)**
+#### **EDIT (March 16, 2021)**
 Looking back, there were far more efficient ways to accomplish this. Here are some ways in that I would write it differently in hindsight:
 * For one, Python's built-in hash is far better for this purpose than anything from `hashlib`. This is because Python's `hash()` function is fast and can hash the bytes of a numpy array using `hash(ndarray.tobytes())`
 * Some code refactoring made it much easier to read
@@ -73,6 +73,7 @@ Looking back, there were far more efficient ways to accomplish this. Here are so
 
 Taking these points into account, I've added v2 implementations which produce better results, for they are a more complete algorithm of the algorithm.
 
+#### **EDIT (March 30, 2021)**
 Here's a summary of the results observed in the first 2 minutes of one particular run of `threaded-atari-v2.py` on `MontezumaRevengeNoFrameskip-v0` (not cherry-picked):
 ```
 Iterations: 0,       Cells: 0,    Frames: 0,         Max Reward: 0
