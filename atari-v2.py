@@ -76,17 +76,14 @@ while True:
         if np.random.random() > 0.95:
             action = env.action_space.sample()
 
-        for i in range(4):
-            frame, reward, terminal, info = env.step(action)
-            if iterations % 100 == 0:
-                env.render()
-            score += reward
-            terminal |= info['ale.lives'] < 6
-            if terminal:
-                break
+        frame, reward, terminal, info = env.step(action)
+        if iterations % 100 == 0:
+            env.render()
+        score += reward
+        terminal |= info['ale.lives'] < 6
 
         trajectory.append(action)
-        frames += 4
+        frames += 1
 
         if score > highscore:
             highscore = score
