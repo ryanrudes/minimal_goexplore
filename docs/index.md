@@ -42,3 +42,8 @@
 > and from which further exploration might be most effective. To address derailment, an insight in
 > Go-Explore is that effective exploration can be decomposed into first returning to a promising state
 > (without intentionally adding any exploration) before then exploring further.
+
+Go Explore alleviates this problem by, rather than repeatedly exploring from the initial state, returning to prior states as a starting point, and expanding the explored trajectory from that point forwards. However, this assumes that the environment is both *deterministic* and *resettable*.
+
+* A **deterministic** environment is one in which the agent's actions solely determine the state of the environment, ie. taking the same sequence of actions will always lead to the same state. This is in contrast to a **stochastic** environment, in which there is randomness involved in state transitions.
+* A **resettable** environment is one in which it is possible to return to a certain state explicitly. In an atari emulator, we can clone and restore the emulator state to accomplish this. Technically, in any deterministic environment, you can just retake the sequence of actions that brought you to the state in question in order to restore it, even if there is no way of explicitly resetting to a particular state.
