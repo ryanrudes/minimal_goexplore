@@ -85,4 +85,5 @@ Iterations: 103522, Cells: 4108, Frames: 9433592,  Max Reward: 3600
 Iterations: 121112, Cells: 5013, Frames: 11094780, Max Reward: 3700
 Iterations: 161816, Cells: 5514, Frames: 14910896, Max Reward: 3900
 Iterations: 181558, Cells: 5640, Frames: 16749312, Max Reward: 4900
+Iterations: 297663, Cells: 6046, Frames: 27602032, Max Reward: 5100
 ```
