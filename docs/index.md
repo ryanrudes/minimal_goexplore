@@ -63,3 +63,23 @@ This is disadvantageous because many real-world tasks involve a great amount of 
 > algorithm from reliably returning to a particular cell, regardless of which action the agent takes (e.g.
 > in poker, there is no sequence of actions that reliably leads you to a state where you have two aces).
 > We leave a discussion and study of whether Go-Explore helps in that problem setting for future work.
+
+### How the algorithm works
+Go explore involves sampling random trajectories, recording visitted states, and then returning to a certain state based upon a special heuristic. Over time, the algorithm experiences a wide variety of states that encompass the entire environment. This provides for diverse exploration that is not conditioned upon any reward signal.
+
+There are an intractably large number of possible states, considering a *state* in this case is represented by some RGB pixel image. For this reason, the authors downscale frames into **cells**, and store these in an archive as new ones are found.
+<img src="https://i.ibb.co/dWnMyyr/downscale-vis-horiz.png" alt="downscale-vis-horiz" border="0">
+
+> One could, in theory, run Go-Explore directly in a high-dimensional state space (wherein each cell
+> contains exactly one state); however doing so would be intractable in practice. To be tractable in
+> high-dimensional state spaces like Atari, Phase 1 of Go-Explore needs a lower-dimensional space
+> within which to search (although the final policy will still play in the same original state space, in this
+> case pixels). Thus, the cell representation should conflate similar states while not conflating states
+> that are meaningfully different.
+> In this way, a good cell representation should reduce the dimensionality of the observations into a
+> meaningful low-dimensional space. A rich literature investigates how to obtain good representations
+> from pixels. One option is to take latent codes from the middle of neural networks trained with
+> traditional RL algorithms maximizing extrinsic and/or intrinsic motivation, optionally adding auxiliary
+> tasks such as predicting rewards [52]. Additional options include unsupervised techniques such
+> as networks that autoencode [53] or predict future states, and other auxiliary tasks such as pixel
+> control [54].
