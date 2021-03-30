@@ -97,3 +97,40 @@ The authors determine that a special return heuristic for selecting cells to exp
 The exact formulae for computing the cell selection probabilities are irrelevant for this brief overview, but they can be found in the paper.
 
 Once the algorithm has run for quite some time, it will have explored an abundance of trajectories. If the environment in which the agent will be deployed is stochastic, these trajectories might not be robust to function in them. For example, taking a high-scoring trajectory explored during the exploration phase might not always lead to the same state in a stochastic version of the environment. If this is the case, then simply repeating these high-reward trajectories won't work on its own. Instead, we conduct imitation learning to train an agent to replicate these high-performing trajectories without being susceptible to this added stochasticity. Ultimately, we'd have an agent capable of achieving high reward in a stochastic, sparse-reward environment.
+
+## This implementation
+
+While the [official code implementation](https://github.com/uber-research/go-explore) is long and confusing, I have written an implementation that reproduces the same results from the paper, and is only approximately 125 lines of Python. It is also fast and efficient, with a multithreaded version implemented as well.
+
+Below is a comparison of the logging from one particular run of the code in this repo, followed by the charts in the official publication. You can interpolate to see that they reproduce approximately the same performance.
+
+```
+Iterations: 0,       Cells: 0,    Frames: 0,         Max Reward: 0
+Iterations: 4381,    Cells: 235,  Frames: 308820,    Max Reward: 100
+Iterations: 9764,    Cells: 481,  Frames: 681496,    Max Reward: 400
+Iterations: 15135,   Cells: 1383, Frames: 1123676,   Max Reward: 500
+Iterations: 16067,   Cells: 1424, Frames: 1210164,   Max Reward: 2500
+Iterations: 23125,   Cells: 1645, Frames: 1837288,   Max Reward: 2600
+Iterations: 85091,   Cells: 3886, Frames: 7662984,   Max Reward: 2700
+Iterations: 103522,  Cells: 4108, Frames: 9433592,   Max Reward: 3600
+Iterations: 121112,  Cells: 5013, Frames: 11094780,  Max Reward: 3700
+Iterations: 161816,  Cells: 5514, Frames: 14910896,  Max Reward: 3900
+Iterations: 181558,  Cells: 5640, Frames: 16749312,  Max Reward: 4900
+Iterations: 297663,  Cells: 6046, Frames: 27602032,  Max Reward: 5100
+Iterations: 301599,  Cells: 6058, Frames: 27959652,  Max Reward: 5900
+Iterations: 420121,  Cells: 6267, Frames: 39010620,  Max Reward: 6100
+Iterations: 428669,  Cells: 6275, Frames: 39803388,  Max Reward: 7100
+Iterations: 1553042, Cells: 6805, Frames: 142954240, Max Reward: 8100
+Iterations: 2596421, Cells: 9018, Frames: 236394928, Max Reward: 8200
+Iterations: 2613646, Cells: 9031, Frames: 237898588, Max Reward: 10200
+```
+
+<div class="row">
+  <div class="column">
+    <img src="https://i.ibb.co/S7qB16d/mont-goexp-no-domain-new-cells-square-ticks-1.jpg" style="width:100%">
+  </div>
+  
+  <div class="column">
+    <img src="https://i.ibb.co/rksKS3r/mont-goexp-no-domain-new-score-square-ticks-1.jpg" alt="Forest" style="width:100%">
+  </div>
+</div>
