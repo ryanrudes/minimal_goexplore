@@ -62,9 +62,6 @@ frames = 0
 e1 = 0.001
 e2 = 0.00001
 
-def explore():
-    global highscore, frames, best_cell, new_cell, archive
-
 env = gym.make("MontezumaRevengeDeterministic-v4")
 frame = env.reset()
 score = 0
