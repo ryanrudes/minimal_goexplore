@@ -58,9 +58,6 @@ frames = 0
 e1 = 0.001
 e2 = 0.00001
 
-def explore():
-    global highscore, frames, best_cell, new_cell, archive
-
 env = retro.make("SuperMarioWorld2-Snes")
 frame = env.reset()
 score = 0
