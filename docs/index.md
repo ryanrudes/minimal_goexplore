@@ -95,3 +95,5 @@ The authors determine that a special return heuristic for selecting cells to exp
 3. Cells that have recently contributed to discovering a new cell are considered more promising
 
 The exact formulae for computing the cell selection probabilities are irrelevant for this brief overview, but they can be found in the paper.
+
+Once the algorithm has run for quite some time, it will have explored an abundance of trajectories. If the environment in which the agent will be deployed is stochastic, these trajectories might not be robust to function in them. For example, taking a high-scoring trajectory explored during the exploration phase might not always lead to the same state in a stochastic version of the environment. If this is the case, then simply repeating these high-reward trajectories won't work on its own. Instead, we conduct imitation learning to train an agent to replicate these high-performing trajectories without being susceptible to this added stochasticity. Ultimately, we'd have an agent capable of achieving high reward in a stochastic, sparse-reward environment.
