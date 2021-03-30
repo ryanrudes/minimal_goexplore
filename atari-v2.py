@@ -104,8 +104,7 @@ while True:
                 cell.trajectory = trajectory.copy()
                 cell.times_chosen = 0
                 cell.times_chosen_since_new = 0
-                if first_visit:
-                    found_new_cell = True
+                found_new_cell = True
 
     if found_new_cell and iterations > 0:
         restore_cell.times_chosen_since_new = 0
