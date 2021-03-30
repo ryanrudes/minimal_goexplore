@@ -125,7 +125,7 @@ Iterations: 2596421, Cells: 9018, Frames: 236394928, Max Reward: 8200
 Iterations: 2613646, Cells: 9031, Frames: 237898588, Max Reward: 10200
 ```
 
-<div style-"clear:both;display:table;">
+<div style="clear:both;display:table;">
   <div style="float:left;width:33.33%;padding:5px;">
     <img src="https://i.ibb.co/S7qB16d/mont-goexp-no-domain-new-cells-square-ticks-1.jpg" style="width:100%">
   </div>
