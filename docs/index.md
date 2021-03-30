@@ -84,6 +84,14 @@ There are an intractably large number of possible states, considering a *state* 
 > as networks that autoencode [53] or predict future states, and other auxiliary tasks such as pixel
 > control [54].
 
-After a cell is returned to, up to 100 random actions are taken. The iteration of exploration from that cell terminates after either 100 steps, or reaching a terminal state, whichever comes first. At each step, the algorithm repeats the previous action with 95% probability. Otherwise, it performs a new random action. This permits the agent to actually move, rather than remaining overall stationary while jittering back and forth due to the effects of sampling repeatedly from a probability distribution even across the action space.
+After a cell is returned to, up to 100 random actions are taken. The iteration of exploration from that cell terminates after either 100 steps, or reaching a terminal state, whichever comes first. At each step, the algorithm repeats the previous action with 95% probability. Otherwise, it performs a new random action. This permits the agent to actually move, rather than remaining overall stationary while jittering back and forth due to the effects of sampling repeatedly from a uniform probability distribution across the action space.
 
 <img src="https://i.ibb.co/9hGb4Zt/high-level-overview-v2-1.jpg" alt="high-level-overview-v2-1" border="0">
+
+The authors determine that a special return heuristic for selecting cells to explore from improves upon simply random selection. Their heuristic incorperates 3 factors that are weighted separately. The heuristic assigns a positive weight to each cell discovered thus far that is higher for cells that are deemed more promising. The attributes taken into account are as follows:
+
+1. Cells that have been visited less often (at any time during the exploration phase) are deemed more promising
+2. Cells that have been explicitly returned to less often are more promising
+3. Cells that have recently contributed to discovering a new cell are considered more promising
+
+The exact formulae for computing the cell selection probabilities are irrelevant for this brief overview, but they can be found in the paper.
