@@ -72,11 +72,15 @@ Looking back, there were far more efficient ways to accomplish this. Here are so
 
 Taking these points into account, I've added v2 implementations which produce better results, for they are a more complete algorithm of the algorithm.
 
-Here's a summary of the results observed in the first 2 minutes of one particular run of `threaded-atari-v2.py` on `MontezumaRevenge-v0` (not cherry-picked):
+Here's a summary of the results observed in the first 2 minutes of one particular run of `threaded-atari-v2.py` on `MontezumaRevengeNoFrameskip-v0` (not cherry-picked):
 ```
 Iterations: 0,     Cells: 0,    Frames: 0,      Max Reward: 0
-Iterations: 4861,  Cells: 269,  Frames: 338964, Max Reward: 100
-Iterations: 10405, Cells: 714,  Frames: 755612, Max Reward: 400
-Iterations: 11258, Cells: 1113, Frames: 838724, Max Reward: 500
-Iterations: 12783, Cells: 1240, Frames: 980416, Max Reward: 2500
+Iterations: 4381, Cells: 235, Frames: 308820, Max Reward: 100
+Iterations: 9764, Cells: 481, Frames: 681496, Max Reward: 400
+Iterations: 15135, Cells: 1383, Frames: 1123676, Max Reward: 500
+Iterations: 16067, Cells: 1424, Frames: 1210164, Max Reward: 2500
+Iterations: 23125, Cells: 1645, Frames: 1837288, Max Reward: 2600
+Iterations: 85091, Cells: 3886, Frames: 7662984, Max Reward: 2700
+Iterations: 103522, Cells: 4108, Frames: 9433592, Max Reward: 3600
+Iterations: 121112, Cells: 5013, Frames: 11094780, Max Reward: 3700
 ```
