@@ -47,3 +47,19 @@ Go Explore alleviates this problem by, rather than repeatedly exploring from the
 
 * A **deterministic** environment is one in which the agent's actions solely determine the state of the environment, ie. taking the same sequence of actions will always lead to the same state. This is in contrast to a **stochastic** environment, in which there is randomness involved in state transitions.
 * A **resettable** environment is one in which it is possible to return to a certain state explicitly. In an atari emulator, we can clone and restore the emulator state to accomplish this. Technically, in any deterministic environment, you can just retake the sequence of actions that brought you to the state in question in order to restore it, even if there is no way of explicitly resetting to a particular state.
+
+This is disadvantageous because many real-world tasks involve a great amount of stochasticity (randomness), so this restriction upon environments that are deterministic and resettable is an issue. The authors note the fact that most future applications of Reinforcement Learning will first involved a simulator before being deployed into the real world. Therefore, in many situations, we can infact rely on the assumption that we have a deterministic test environment. However, in the case that we do not, and the agent is forced to explore in a stochastic world, we cannot exploit determinism and resettability. In this case, the authors say, we can use goal-conditioned policies to return to the cells themselves. This is a problem for future work:
+
+> There are also cases where a simulator is not available and where learning algorithms must confront
+> stochasticity during training. To create and test algorithms for this second type of problem, we cannot
+> exploit determinism and resettability. Examples of this class of problems include when we must
+> learn directly in the real world (and an effective simulator is not available and cannot be learned),
+> or when studying the learning of biological animals, including ourselves. We believe Go-Explore
+> can handle such situations by training goal-conditioned policies [62, 63] that reliably return to cells
+> in the archive during the exploration phase, which is an interesting area for future research. While
+> computationally much more expensive, this strategy would result in a fully trained policy at the end
+> of the exploration phase, meaning there would be no need for a robustification phase at the end. We
+> note that there are some problems where the environment has forms of stochasticity that prevent the
+> algorithm from reliably returning to a particular cell, regardless of which action the agent takes (e.g.
+> in poker, there is no sequence of actions that reliably leads you to a state where you have two aces).
+> We leave a discussion and study of whether Go-Explore helps in that problem setting for future work.
