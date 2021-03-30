@@ -7,8 +7,6 @@ A Go-Explore agent discovers many rooms in Montezuma's Revenge even when run for
 
 ![Alt Text](https://media.giphy.com/media/vVGCKu6SX9Y7T11RCj/giphy.gif)
 
-Two agents exploring via Go-Explore, returning according to a different metric.
-
 <a href="https://ibb.co/Q6HKckk"><img src="https://i.ibb.co/VvCqNxx/all-shots.jpg" alt="all-shots" border="0"></a>
 
 The many different cells found in various `gym` environments.
