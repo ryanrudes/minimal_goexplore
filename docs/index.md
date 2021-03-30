@@ -83,3 +83,7 @@ There are an intractably large number of possible states, considering a *state* 
 > tasks such as predicting rewards [52]. Additional options include unsupervised techniques such
 > as networks that autoencode [53] or predict future states, and other auxiliary tasks such as pixel
 > control [54].
+
+After a cell is returned to, up to 100 random actions are taken. The iteration of exploration from that cell terminates after either 100 steps, or reaching a terminal state, whichever comes first. At each step, the algorithm repeats the previous action with 95% probability. Otherwise, it performs a new random action. This permits the agent to actually move, rather than remaining overall stationary while jittering back and forth due to the effects of sampling repeatedly from a probability distribution even across the action space.
+
+<img src="https://i.ibb.co/9hGb4Zt/high-level-overview-v2-1.jpg" alt="high-level-overview-v2-1" border="0">
