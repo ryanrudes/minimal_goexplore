@@ -76,22 +76,36 @@ Taking these points into account, I've added v2 implementations which produce be
 #### **EDIT (March 30, 2021)**
 Here's a summary of the results observed in one particular run of `threaded-atari-v2.py` on `MontezumaRevengeNoFrameskip-v0` (not cherry-picked):
 ```
-Iterations: 0,       Cells: 0,    Frames: 0,         Max Reward: 0
-Iterations: 4381,    Cells: 235,  Frames: 308820,    Max Reward: 100
-Iterations: 9764,    Cells: 481,  Frames: 681496,    Max Reward: 400
-Iterations: 15135,   Cells: 1383, Frames: 1123676,   Max Reward: 500
-Iterations: 16067,   Cells: 1424, Frames: 1210164,   Max Reward: 2500
-Iterations: 23125,   Cells: 1645, Frames: 1837288,   Max Reward: 2600
-Iterations: 85091,   Cells: 3886, Frames: 7662984,   Max Reward: 2700
-Iterations: 103522,  Cells: 4108, Frames: 9433592,   Max Reward: 3600
-Iterations: 121112,  Cells: 5013, Frames: 11094780,  Max Reward: 3700
-Iterations: 161816,  Cells: 5514, Frames: 14910896,  Max Reward: 3900
-Iterations: 181558,  Cells: 5640, Frames: 16749312,  Max Reward: 4900
-Iterations: 297663,  Cells: 6046, Frames: 27602032,  Max Reward: 5100
-Iterations: 301599,  Cells: 6058, Frames: 27959652,  Max Reward: 5900
-Iterations: 420121,  Cells: 6267, Frames: 39010620,  Max Reward: 6100
-Iterations: 428669,  Cells: 6275, Frames: 39803388,  Max Reward: 7100
-Iterations: 1553042, Cells: 6805, Frames: 142954240, Max Reward: 8100
-Iterations: 2596421, Cells: 9018, Frames: 236394928, Max Reward: 8200
-Iterations: 2613646, Cells: 9031, Frames: 237898588, Max Reward: 10200
+Iterations: 0, Cells: 0, Frames: 0, Max Reward: 0
+Iterations: 4184, Cells: 226, Frames: 68537, Max Reward: 100
+Iterations: 10437, Cells: 582, Frames: 182623, Max Reward: 400
+Iterations: 11814, Cells: 1183, Frames: 214587, Max Reward: 500
+Iterations: 13176, Cells: 1261, Frames: 244967, Max Reward: 2500
+Iterations: 102822, Cells: 3788, Frames: 2250169, Max Reward: 2600
+Iterations: 163037, Cells: 4325, Frames: 3689907, Max Reward: 3600
+Iterations: 267517, Cells: 4610, Frames: 6138934, Max Reward: 3900
+Iterations: 381069, Cells: 4745, Frames: 8804395, Max Reward: 4900
+Iterations: 404446, Cells: 4860, Frames: 9350689, Max Reward: 5100
+Iterations: 645493, Cells: 5026, Frames: 14911490, Max Reward: 6100
+Iterations: 882479, Cells: 5122, Frames: 20315900, Max Reward: 7100
+Iterations: 3157501, Cells: 6637, Frames: 70733548, Max Reward: 7500
+Iterations: 3611170, Cells: 6971, Frames: 80542377, Max Reward: 8300
+Iterations: 3616284, Cells: 6977, Frames: 80651268, Max Reward: 9300
+Iterations: 3862820, Cells: 9243, Frames: 86131224, Max Reward: 9500
+Iterations: 3898876, Cells: 9294, Frames: 86925993, Max Reward: 17500
+Iterations: 3970799, Cells: 9988, Frames: 88518299, Max Reward: 18500
+Iterations: 3983512, Cells: 10034, Frames: 88796112, Max Reward: 19500
+Iterations: 4012575, Cells: 10116, Frames: 89429866, Max Reward: 20500
+Iterations: 4126501, Cells: 10648, Frames: 91943176, Max Reward: 20600
+Iterations: 4129528, Cells: 10673, Frames: 92009894, Max Reward: 20900
+Iterations: 4129892, Cells: 10681, Frames: 92017125, Max Reward: 21900
+Iterations: 4177504, Cells: 11282, Frames: 93073347, Max Reward: 22000
+Iterations: 4190708, Cells: 11352, Frames: 93360557, Max Reward: 22900
+Iterations: 4348374, Cells: 12594, Frames: 96771923, Max Reward: 23000
+Iterations: 4366546, Cells: 13150, Frames: 97152306, Max Reward: 23200
+Iterations: 4377667, Cells: 13416, Frames: 97380833, Max Reward: 24200
+Iterations: 4378041, Cells: 13421, Frames: 97388109, Max Reward: 25200
+Iterations: 4406958, Cells: 13796, Frames: 97992201, Max Reward: 25500
+...
+Iterations: 6939517, Cells: 20224, Frames: 150848162, Max Reward: 56500
 ```
