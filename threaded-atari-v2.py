@@ -87,19 +87,16 @@ def explore(id):
             if np.random.random() > 0.95:
                 action = env.action_space.sample()
 
-            for i in range(4):
-                frame, reward, terminal, info = env.step(action)
-                score += reward
-                terminal |= info['ale.lives'] < 6
-                if terminal:
-                    break
+            frame, reward, terminal, info = env.step(action)
+            score += reward
+            terminal |= info['ale.lives'] < 6
 
             trajectory.append(action)
             episode_length += 4
 
             if score > highscore:
                 highscore = score
-                best_cell = cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB)
+                best_cell = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
             if terminal:
                 frames += episode_length
@@ -115,7 +112,7 @@ def explore(id):
                     cell.trajectory = trajectory.copy()
                     cell.times_chosen = 0
                     cell.times_chosen_since_new = 0
-                    new_cell = cv2.cvtColor(np.copy(frame), cv2.COLOR_BGR2RGB)
+                    new_cell = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                     found_new_cell = True
 
         if found_new_cell and my_iterations > 0:
@@ -139,7 +136,7 @@ for thread in threads:
 
 while True:
     print ("Iterations: %d, Cells: %d, Frames: %d, Max Reward: %d" % (iterations, len(archive), frames, highscore))
-    cv2.imshow("Best Cell", best_cell)
-    cv2.imshow("Newest Cell", new_cell)
+    image = np.concatenate((best_cell, new_cell), axis = 1)
+    cv2.imshow('best cell – newest cell', image)
     cv2.waitKey(1)
     sleep(1)
