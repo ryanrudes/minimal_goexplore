@@ -16,7 +16,7 @@ Click the image above to redirect to a 2-minute YouTube video. It shows a render
 # Results
 - The logging and performance appears to match that of the official implementation written by the authors of the paper. On the left is the highscore reached thus far and on the right is the latest cell discovered. The agent has exploited a bug in the emulator that enables it to collect reward in the treasure room forever.
 
-<img src="https://i.ibb.co/Qcm1L5t/Screen-Shot-2021-04-01-at-11-17-23-AM.png">
+<img src="https://i.ibb.co/VNBPRK5/Screen-Shot-2021-04-01-at-11-17-23-AM.png">
 
 #### **EDIT (March 16, 2021)**
 Looking back, there were far more efficient ways to accomplish this. Here are some ways in that I would write it differently in hindsight:
