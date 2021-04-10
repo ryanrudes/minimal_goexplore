@@ -108,7 +108,7 @@ while True:
 
     iterations += 1
     scores = np.array([cell.score for cell in archive.values()])
-    hashes = [cellhash for cellhash in archive.keys()]
+    hashes = list(archive.keys())
     probs = scores / scores.sum()
     restore = np.random.choice(hashes, p = probs)
     restore_cell = archive[restore]
