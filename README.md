@@ -66,4 +66,7 @@ Iterations: 6939517, Cells: 20224, Frames: 150848162, Max Reward: 56500
 ```
 
 #### **EDIT (April 22, 2021)**
-The `goexplore` directory now contains a more user-friendly implementation with improveed logging and overall functionality. This is ideal for experimentation, but note that the current version does not include multithreading.
+The `goexplore` directory now contains a more user-friendly implementation with improved logging and overall functionality. This is ideal for experimentation, but note that the current version does not include multithreading.
+
+#### **EDIT (April 26, 2021)**
+The `goexplore` directory has been moved to a separate [repository](https://github.com/Ryan-Rudes/VQVAE-Clean)
